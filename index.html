@@ -9,42 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <title>Sticky Scroll Effect</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background-color: black;
-        }
-
-        .container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .website-1 {
-            width: 100%;
-            min-height: 120vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start;
-            position: relative;
-            color: white;
-        }
-
+    <title>Parfume</title>
+    <style name="navbar">
         .navbar {
             display: flex;
             z-index: 111112;
-            position: fixed;
+            position: sticky;
             align-items: center;
             justify-content: space-between;
             height: 80px;
+            top: 0;
             width: 100%;
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
@@ -75,73 +49,43 @@
 
         }
 
-        h1 {
-            font-size: 19px;
-            color: white;
-            font-family: sans-serif;
-            font-weight: lighter;
-        }
 
         .icon {
             width: 55px;
             display: flex;
             align-items: center;
+            margin-right: 20px;
             justify-content: center;
         }
-
-        h1 {
-            font-size: 19px;
-            color: white;
-            font-weight: lighter;
+    </style>
+    <style name="all">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: black;
         }
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        /* Sticky effect for Box-2 */
-        .box-2 {
+        .container {
             width: 100%;
-            min-height: fit-content;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            backdrop-filter: blur(150px);
-            -webkit-backdrop-filter: blur(150px);
-            background-color: rgba(255, 255, 255, 0.3);
-            position: sticky;
-            z-index: 1;
-            padding: 50px 20px;
-            /* Equal space on all sides */
-        }
-
-
-
-
-        /* Product Boxes */
-        .boxes {
-            width: 300px;
-            height: 300px;
-            display: flex;
+            flex-direction: column;
             overflow: hidden;
+        }
+
+        .website-1 {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background-color: #103513;
-            border-radius: 20px;
+            justify-content: start;
+            color: white;
         }
 
-        .product-img {
-            width: 150%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100%;
-        }
 
-        /* Background Image */
         .background-img {
             position: fixed;
             z-index: 0;
@@ -156,7 +100,11 @@
             display: none;
         }
 
-        /* Mobile Responsive */
+        .text-box {
+            z-index: 14;
+        }
+    </style>
+    <style name="ipad-phone">
         @media (max-width: 768px) {
             .website-1 {
                 min-height: 100vh;
@@ -168,7 +116,7 @@
 
             .hamburger-menu {
                 width: 110px;
-                margin-right: 20px;
+                margin-right: 10px;
                 height: 60px;
                 display: flex;
                 align-items: flex-end;
@@ -197,7 +145,28 @@
                 border-radius: 20px;
                 background-color: white;
             }
+            .icon{
+                margin: 0;
+            }
+            .logo{
+                margin-left: 10px;
+            }
         }
+    </style>
+    <style name="fonts">
+          h1 {
+            font-size: 19px;
+            color: white;
+            font-family: "Itim", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            
+        }
+
     </style>
 </head>
 
@@ -205,11 +174,9 @@
 
     <div class="container">
 
-        <!-- Background Image -->
         <div class="website-1">
             <img class="background-img" src="./images/dior-water.png" alt="">
 
-            <!-- Navbar -->
             <div class="navbar">
                 <div class="logo">Parfume</div>
                 <div class="items">
@@ -237,31 +204,12 @@
                     <div class="line-3"></div>
                 </div>
             </div>
-        </div>
 
-        <!-- Box 2 (Sticks at top when scrolled) -->
-        <div class="box-2">
-            <div class="boxes">
-                <img class="product-img" src="./images/product-1.png" alt="Product 1">
-            </div>
-            <div class="boxes">
-                <img class="product-img" src="./images/product-2.png" alt="Product 2">
-            </div>
-            <div class="boxes">
-                <img class="product-img" src="./images/dark-blue.png" alt="Product 2">
-            </div>
-            <div class="boxes">
-                <img class="product-img" src="./images/dark-orange.png" alt="Product 2">
-            </div>
-            <div class="boxes">
-                <img class="product-img" src="./images/light-blue.png" alt="Product 2">
-            </div>
-            <div class="boxes">
-                <img class="product-img" src="./images/dior-water.png" alt="Product 2">
+
+            <div class="text-box">
+                <h1>Buy your Parfume with us</h1>
             </div>
         </div>
-
-        <!-- Box 3 (Overlays Box-2 when scrolled into view) -->
 
 
     </div>
