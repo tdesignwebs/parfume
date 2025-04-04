@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,6 +83,7 @@
             margin-right: 25px;
             justify-content: center;
         }
+
         h1 {
             font-size: 19px;
             color: white;
@@ -95,23 +97,24 @@
 
         /* Sticky effect for Box-2 */
         .box-2 {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    background-color: rgba(0, 0, 0, 0.1);
-    position: sticky;
-    z-index: 1;
-    padding: 90px 0; /* optional, just to give breathing space */
-}
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            background-color: rgba(0, 0, 0, 0.1);
+            position: sticky;
+            z-index: 1;
+            padding: 90px 0;
+            /* optional, just to give breathing space */
+        }
 
 
-  
+
         /* Product Boxes */
         .boxes {
             width: 300px;
@@ -142,7 +145,8 @@
             background-size: cover;
             object-fit: cover;
         }
-        .hamburger-menu{
+
+        .hamburger-menu {
             display: none;
         }
 
@@ -152,10 +156,11 @@
                 min-height: 100vh;
             }
 
-            .items{
+            .items {
                 display: none;
             }
-            .hamburger-menu{
+
+            .hamburger-menu {
                 width: 60px;
                 margin-right: 20px;
                 height: 60px;
@@ -165,19 +170,22 @@
                 flex-direction: column;
                 gap: 5px;
             }
-            .line-1{
+
+            .line-1 {
                 height: 4px;
                 width: 50px;
                 border-radius: 20px;
                 background-color: white;
             }
-            .line-2{
+
+            .line-2 {
                 height: 4px;
                 width: 40px;
                 border-radius: 20px;
                 background-color: white;
             }
-            .line-3{
+
+            .line-3 {
                 height: 4px;
                 width: 30px;
                 border-radius: 20px;
@@ -186,28 +194,35 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
 
         <!-- Background Image -->
         <div class="website-1">
-            <img class="background-img" src="./images/parfume.png" alt="">
-            
+            <img class="background-img" src="./images/dark-blue.png" alt="">
+
             <!-- Navbar -->
             <div class="navbar">
                 <div class="logo">Parfume</div>
                 <div class="items">
                     <h1>Home</h1>
-                    <a href="./service.html"><h1>Service</h1></a>
+                    <a href="./service.html">
+                        <h1>Service</h1>
+                    </a>
                     <h1>Chat</h1>
                     <h1>Product</h1>
                 </div>
                 <div class="icon">
                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.33041 24.6139L4.63438 14.4894C4.35851 12.8425 4.22058 12.0191 4.64533 11.4783C5.07007 10.9375 5.85474 10.9375 7.42407 10.9375H27.5759C29.1452 10.9375 29.93 10.9375 30.3546 11.4783C30.7794 12.0191 30.6415 12.8425 30.3656 14.4894L28.6695 24.6139C28.0715 28.1843 27.7725 29.9695 26.5882 31.0263C25.404 32.0833 23.7029 32.0833 20.3006 32.0833H14.6994C11.2972 32.0833 9.59604 32.0833 8.4118 31.0263C7.22754 29.9695 6.9285 28.1843 6.33041 24.6139Z" stroke="white" stroke-width="1.5"/>
-                        <path d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375" stroke="white" stroke-width="1.5"/>
-                        <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5"/>
+                        <path
+                            d="M6.33041 24.6139L4.63438 14.4894C4.35851 12.8425 4.22058 12.0191 4.64533 11.4783C5.07007 10.9375 5.85474 10.9375 7.42407 10.9375H27.5759C29.1452 10.9375 29.93 10.9375 30.3546 11.4783C30.7794 12.0191 30.6415 12.8425 30.3656 14.4894L28.6695 24.6139C28.0715 28.1843 27.7725 29.9695 26.5882 31.0263C25.404 32.0833 23.7029 32.0833 20.3006 32.0833H14.6994C11.2972 32.0833 9.59604 32.0833 8.4118 31.0263C7.22754 29.9695 6.9285 28.1843 6.33041 24.6139Z"
+                            stroke="white" stroke-width="1.5" />
+                        <path
+                            d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375"
+                            stroke="white" stroke-width="1.5" />
+                        <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5" />
                     </svg>
                 </div>
                 <div class="hamburger-menu">
@@ -241,9 +256,10 @@
         </div>
 
         <!-- Box 3 (Overlays Box-2 when scrolled into view) -->
-        
+
 
     </div>
 
 </body>
+
 </html>
