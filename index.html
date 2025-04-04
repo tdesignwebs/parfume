@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Scroll Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: black;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .website-1 {
+            width: 100%;
+            min-height: 120vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            position: relative;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            z-index: 111112;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            width: 100%;
+            -webkit-backdrop-filter: blur(50px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            width: 110px;
+            font-size: 27px;
+            z-index: 1;
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+            justify-content: center;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            z-index: 1;
+            width: 300px;
+
+        }
+
+        h1 {
+            font-size: 19px;
+            color: white;
+            font-family: sans-serif;
+            font-weight: lighter;
+        }
+
+        .icon {
+            width: 55px;
+            display: flex;
+            align-items: center;
+            margin-right: 25px;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 19px;
+            color: white;
+            font-weight: lighter;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Sticky effect for Box-2 */
+        .box-2 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    -webkit-backdrop-filter: blur(50px);
+    background-color: rgba(0, 0, 0, 0.1);
+    position: sticky;
+    z-index: 1;
+    padding: 90px 0; /* optional, just to give breathing space */
+}
+
+
+  
+        /* Product Boxes */
+        .boxes {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            background-color: #103513;
+            border-radius: 20px;
+        }
+
+        .product-img {
+            width: 150%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+        /* Background Image */
+        .background-img {
+            position: fixed;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-size: cover;
+            object-fit: cover;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .website-1 {
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Background Image -->
+        <div class="website-1">
+            <img class="background-img" src="./images/parfume.png" alt="">
+            
+            <!-- Navbar -->
+            <div class="navbar">
+                <div class="logo">Parfume</div>
+                <div class="items">
+                    <h1>Home</h1>
+                    <a href="./service.html"><h1>Service</h1></a>
+                    <h1>Chat</h1>
+                    <h1>Product</h1>
+                </div>
+                <div class="icon">
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.33041 24.6139L4.63438 14.4894C4.35851 12.8425 4.22058 12.0191 4.64533 11.4783C5.07007 10.9375 5.85474 10.9375 7.42407 10.9375H27.5759C29.1452 10.9375 29.93 10.9375 30.3546 11.4783C30.7794 12.0191 30.6415 12.8425 30.3656 14.4894L28.6695 24.6139C28.0715 28.1843 27.7725 29.9695 26.5882 31.0263C25.404 32.0833 23.7029 32.0833 20.3006 32.0833H14.6994C11.2972 32.0833 9.59604 32.0833 8.4118 31.0263C7.22754 29.9695 6.9285 28.1843 6.33041 24.6139Z" stroke="white" stroke-width="1.5"/>
+                        <path d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375" stroke="white" stroke-width="1.5"/>
+                        <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Box 2 (Sticks at top when scrolled) -->
+        <div class="box-2">
+            <div class="boxes">
+                <img class="product-img" src="./images/product-1.png" alt="Product 1">
+            </div>
+            <div class="boxes">
+                <img class="product-img" src="./images/product-2.png" alt="Product 2">
+            </div>
+            <div class="boxes">
+                <img class="product-img" src="./images/dark-blue.png" alt="Product 2">
+            </div>
+            <div class="boxes">
+                <img class="product-img" src="./images/dark-orange.png" alt="Product 2">
+            </div>
+            <div class="boxes">
+                <img class="product-img" src="./images/light-blue.png" alt="Product 2">
+            </div>
+            <div class="boxes">
+                <img class="product-img" src="./images/dior-water.png" alt="Product 2">
+            </div>
+        </div>
+
+        <!-- Box 3 (Overlays Box-2 when scrolled into view) -->
+        
+
+    </div>
+
+</body>
+</html>
