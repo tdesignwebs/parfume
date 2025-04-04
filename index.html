@@ -117,11 +117,15 @@
             width: 200px;
             height: 60px;
             border-radius: 100px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
             border: 0.5px solid rgba(255, 255, 255, 0.413);
             font-family: sans-serif;
+            justify-content: center;
+            gap: 10px;
             font-weight: lighter;
             color: white;
             font-size: 16px;
@@ -142,7 +146,7 @@
             background-color: rgba(255, 255, 255, 1);
             z-index: 3;
             border-radius: 10px;
-            border: 0px solid rgba(255, 255, 255, 0.2);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -161,21 +165,18 @@
 
         .product-name-box {
             width: 90%;
-            
+
             height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .buy-now{
-            width: 180px;
-            height: 50px;
-            border-radius: 200px;
-            border: 0.2px solid black;
+
+        .buy-text {
             color: black;
-            font-weight: lighter;
-            cursor: pointer;
-            font-size: 16px;
+            text-decoration: underline;
+            font-size: 17px;
+            letter-spacing: 1px;
         }
     </style>
     <style name="ipad-phone">
@@ -264,6 +265,7 @@
             padding: 0;
 
         }
+
         h4 {
             font-size: 1rem;
             font-weight: 400;
@@ -275,6 +277,7 @@
             padding: 0;
 
         }
+
         h5 {
             font-size: 1rem;
             font-weight: 500;
@@ -327,7 +330,7 @@
 
             <div class="text-box">
                 <h2>Buy your Parfume with us</h2>
-                    <button>Buy now</button>
+                <button>Buy now</button>
             </div>
         </div>
         <div class="product-list-box">
@@ -342,7 +345,14 @@
                 <div class="product-name-box">
                     <h5>€ 90</h5>
                 </div>
-                <button class="buy-now">buy now</button>
+                <button class="buy-now"><a class="buy-text" href="#">add to your cart </a><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L6 18" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
+                            stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
             </div>
         </div>
 
