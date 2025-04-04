@@ -80,7 +80,6 @@
             width: 55px;
             display: flex;
             align-items: center;
-            margin-right: 25px;
             justify-content: center;
         }
 
@@ -98,20 +97,21 @@
         /* Sticky effect for Box-2 */
         .box-2 {
             width: 100%;
-            min-height: 100vh;
+            min-height: fit-content;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 20px;
-            backdrop-filter: blur(50px);
-            -webkit-backdrop-filter: blur(50px);
-            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(150px);
+            -webkit-backdrop-filter: blur(150px);
+            background-color: rgba(255, 255, 255, 0.3);
             position: sticky;
             z-index: 1;
-            padding: 90px 0;
-            /* optional, just to give breathing space */
+            padding: 50px 20px;
+            /* Equal space on all sides */
         }
+
 
 
 
@@ -161,7 +161,7 @@
             }
 
             .hamburger-menu {
-                width: 60px;
+                width: 110px;
                 margin-right: 20px;
                 height: 60px;
                 display: flex;
@@ -201,7 +201,7 @@
 
         <!-- Background Image -->
         <div class="website-1">
-            <img class="background-img" src="./images/dark-blue.png" alt="">
+            <img class="background-img" src="./images/dior-water.png" alt="">
 
             <!-- Navbar -->
             <div class="navbar">
