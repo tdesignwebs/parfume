@@ -102,6 +102,25 @@
 
         .text-box {
             z-index: 14;
+            height: 80vh;
+            gap: 40px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        button{
+            width: 200px;
+            height: 60px;
+            border-radius: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.413);
+            font-family: sans-serif;
+            font-weight: lighter;
+            color: white;
+            font-size: 16px;
         }
     </style>
     <style name="ipad-phone">
@@ -145,28 +164,39 @@
                 border-radius: 20px;
                 background-color: white;
             }
-            .icon{
+
+            .icon {
                 margin: 0;
             }
-            .logo{
+
+            .logo {
                 margin-left: 10px;
             }
         }
     </style>
     <style name="fonts">
-          h1 {
+        h1 {
             font-size: 19px;
             color: white;
             font-family: "Itim", cursive;
             font-weight: 400;
             font-style: normal;
         }
-        a{
+
+        a {
             color: white;
             text-decoration: none;
-            
+
         }
 
+        h2 {
+            font-family: "Itim", cursive;
+            font-size: 38px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -175,7 +205,7 @@
     <div class="container">
 
         <div class="website-1">
-            <img class="background-img" src="./images/dior-water.png" alt="">
+            <img class="background-img" src="./images/dark-orange.png" alt="">
 
             <div class="navbar">
                 <div class="logo">Parfume</div>
@@ -207,7 +237,8 @@
 
 
             <div class="text-box">
-                <h1>Buy your Parfume with us</h1>
+                <h2>Buy your Parfume with us</h1>
+                    <button>Buy now</button>
             </div>
         </div>
 
