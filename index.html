@@ -40,6 +40,7 @@
             justify-content: space-between;
             height: 80px;
             width: 100%;
+            backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
             background-color: rgba(255, 255, 255, 0.1);
         }
@@ -101,6 +102,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     background-color: rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -140,11 +142,46 @@
             background-size: cover;
             object-fit: cover;
         }
+        .hamburger-menu{
+            display: none;
+        }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .website-1 {
                 min-height: 100vh;
+            }
+
+            .items{
+                display: none;
+            }
+            .hamburger-menu{
+                width: 60px;
+                margin-right: 20px;
+                height: 60px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .line-1{
+                height: 4px;
+                width: 50px;
+                border-radius: 20px;
+                background-color: white;
+            }
+            .line-2{
+                height: 4px;
+                width: 40px;
+                border-radius: 20px;
+                background-color: white;
+            }
+            .line-3{
+                height: 4px;
+                width: 30px;
+                border-radius: 20px;
+                background-color: white;
             }
         }
     </style>
@@ -172,6 +209,11 @@
                         <path d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375" stroke="white" stroke-width="1.5"/>
                         <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5"/>
                     </svg>
+                </div>
+                <div class="hamburger-menu">
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <div class="line-3"></div>
                 </div>
             </div>
         </div>
