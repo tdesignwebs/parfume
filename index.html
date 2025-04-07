@@ -5,193 +5,448 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfume - Checkout</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Itim&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <title>Parfume</title>
-    <style name="navbar">
-        .navbar {
-            display: flex;
-            z-index: 111112;
-            position: fixed;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-            top: 0;
-            width: 100%;
-            backdrop-filter: blur(50px);
-            -webkit-backdrop-filter: blur(50px);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            width: 110px;
-            font-family: "Itim", cursive;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 28px;
-            z-index: 1;
-            color: white;
-            display: flex;
-            align-items: center;
-            margin-left: 25px;
-            justify-content: center;
-        }
-
-        .items {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            z-index: 1;
-            width: 300px;
-
-        }
-
-
-        .icon {
-            width: 55px;
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-            justify-content: center;
-        }
-    </style>
-    <style name="all">
+    <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
             background-color: black;
+            font-family: 'Inter', sans-serif;
         }
 
         .container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-bottom: 20px;
             overflow: hidden;
-        }
-
-        .website-1 {
             width: 100%;
-            min-height: 80vh;
+            height: fit-content;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: start;
-            color: white;
+            justify-content: flex-start;
+            flex-direction: column;
         }
 
-
-        .background-img {
-            position: fixed;
-            z-index: 0;
+        .navbar {
             width: 100%;
-            height: 100%;
-            filter: blur(40px);
-            background-position: center center;
-            background-size: cover;
-            object-fit: cover;
+            display: flex;
+            height: 80px;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(50px);
         }
 
         .hamburger-menu {
             display: none;
         }
 
-        .text-box {
-            z-index: 14;
-            height: 80vh;
-            gap: 40px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        button {
-            width: 200px;
-            height: 60px;
-            border-radius: 100px;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: flex;
-            align-items: center;
-            border: 0.5px solid rgba(255, 255, 255, 0.413);
-            font-family: sans-serif;
-            justify-content: center;
-            gap: 10px;
-            font-weight: lighter;
+        .logo {
+            font-family: "Itim", cursive;
+            font-weight: 400;
+            width: 100px;
+            font-style: normal;
+            font-size: 26px;
+            margin-left: 20px;
             color: white;
-            font-size: 16px;
         }
 
-        .product-list-box {
-            height: fit-content;
-            width: 100%;
+        .items {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            gap: 35px;
+            margin-right: 20px;
         }
 
-        .product-card {
-            width: 300px;
-            height: 400px;
-            background-color: rgba(255, 255, 255, 1);
-            z-index: 3;
-            border-radius: 10px;
-            border: 0.5px solid rgba(255, 255, 255, 0.2);
-            display: flex;
+        h1 {
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 18px;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .icon {
+            margin-right: 20px;
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .product-box {
+            width: 100%;
+            height: 100vh;
+            gap: 50px;
             align-items: center;
             overflow: hidden;
-            -webkit-backdrop-filter: blur(0px);
-            justify-content: start;
-            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
         }
 
-        .product-img {
-            width: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
+        .left-side {
+            width: 600px;
+            display: flex;
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 400px;
             background-size: cover;
+            border-radius: 20px;
+        }
+
+        .img-itself {
+            background-size: contain;
+            width: 100%;
+        }
+
+        .product-info-blur-background {
+            background-repeat: no-repeat;
+            filter: blur(60px);
+            z-index: 1;
+            position: absolute;
+        }
+
+        .right-side {
+            z-index: 2;
+            width: 325px;
+            height: 323px;
+        }
+
+        .product-info-box {
+            display: flex;
+            width: 100%;
+            height: 323px;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .name-price-box {
+            width: 325px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .h1-product-name {
+            font-family: "Inter", sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            font-size: 20px;
+            color: white;
+            margin: 0;
+        }
+
+        .product-info-title {
+            width: 100%;
+        }
+
+        .h1-info-title {
+            color: #CCCCCC;
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .ml-info-container {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+
+        .ml-box {
+            width: 70px;
+            height: 35px;
+            color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #334155;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: white;
+            color: black;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .h1-ml1 {
+            color: black;
+            font-family: "Inter", sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .h1-ml {
+            font-family: "Inter", sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .amount-container {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+
+        .box-minus {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .box-add {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .box-amount {
+            width: 70px;
+            height: 35px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-weight: normal;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .add-to-cart {
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 325px;
+            height: 43px;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .deliver-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-start;
+            width: 325px;
+        }
+
+        /* Checkout Modal Styles */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .checkout-content {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 90%;
+            color: white;
+            margin: 50px 0;
+        }
+
+        .checkout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkout-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .close-checkout {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .checkout-summary {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 10px;
         }
 
-        .product-name-box {
-            width: 90%;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .checkout-total {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
         }
 
-        .product-title-box{
-            width: 90%;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .customer-info {
+            margin-bottom: 20px;
         }
-        .product-price-box{
-            width: 90%;
-            height: 50px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+
+        .form-group {
+            margin-bottom: 15px;
         }
-        .buy-text {
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        #card-element {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        #submit-payment {
+            background-color: white;
             color: black;
-            text-decoration: underline;
-            font-size: 17px;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
         }
-    </style>
-    <style name="ipad-phone">
+
+        #submit-payment:hover {
+            background-color: #e2e8f0;
+        }
+
+        #payment-message {
+            margin-top: 15px;
+            color: #ff6b6b;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+
+        .processing {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .input-error {
+            border-color: #ff6b6b !important;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .website-1 {
                 min-height: 80vh;
@@ -201,8 +456,12 @@
                 display: none;
             }
 
+            .icon {
+                display: none;
+            }
+
             .hamburger-menu {
-                width: 110px;
+                width: fit-content;
                 margin-right: 10px;
                 height: 60px;
                 display: flex;
@@ -240,137 +499,639 @@
             .logo {
                 margin-left: 10px;
             }
-        }
-    </style>
-    <style name="fonts">
-        h1 {
-            font-size: 19px;
-            color: white;
-            font-family: "Itim", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
 
-        a {
-            color: white;
-            text-decoration: none;
-            font-weight: 300;
+            .product-box {
+                flex-direction: column;
+                height: auto;
+                padding: 100px 20px 50px;
+            }
 
-        }
+            .left-side {
+                width: 100%;
+                height: 300px;
+            }
 
-        h2 {
-            font-family: "Itim", cursive;
-            font-size: 38px;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            font-weight: bold;
-        }
+            .right-side {
+                width: 100%;
+            }
 
-        h3 {
-            font-size: 1.55rem;
-            font-weight: 500;
-            color: black;
-            font-family: "Rubik", sans-serif;
-            line-height: 1.3;
-            margin: 0;
-            padding: 0;
+            .name-price-box,
+            .add-to-cart,
+            .deliver-box {
+                width: 100%;
+            }
 
-        }
+            .checkout-content {
+                width: 90%;
+                padding: 20px;
+            }
 
-        h4 {
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            color: #333;
-            font-family: "Rubik", sans-serif;
-            line-height: 1.3;
-            margin: 0;
-            padding: 0;
-
-        }
-
-        h5 {
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            color: rgb(12, 12, 12);
-            font-family: "Rubik", sans-serif;
-            line-height: 1.3;
-            margin: 0;
-            padding: 0;
-
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
-
-        <div class="website-1">
-            <img class="background-img" src="./images/light-blue.png" alt="">
-
-            <div class="navbar">
-                <div class="logo">Parfume</div>
-                <div class="items">
-                    <h1>Home</h1>
-                    <a href="./service.html">
-                        <h1>Service</h1>
-                    </a>
-                    <h1>Chat</h1>
-                    <h1>Product</h1>
-                </div>
-                <div class="icon">
-                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.33041 24.6139L4.63438 14.4894C4.35851 12.8425 4.22058 12.0191 4.64533 11.4783C5.07007 10.9375 5.85474 10.9375 7.42407 10.9375H27.5759C29.1452 10.9375 29.93 10.9375 30.3546 11.4783C30.7794 12.0191 30.6415 12.8425 30.3656 14.4894L28.6695 24.6139C28.0715 28.1843 27.7725 29.9695 26.5882 31.0263C25.404 32.0833 23.7029 32.0833 20.3006 32.0833H14.6994C11.2972 32.0833 9.59604 32.0833 8.4118 31.0263C7.22754 29.9695 6.9285 28.1843 6.33041 24.6139Z"
-                            stroke="white" stroke-width="1.5" />
-                        <path
-                            d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375"
-                            stroke="white" stroke-width="1.5" />
-                        <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5" />
-                    </svg>
-                </div>
-                <div class="hamburger-menu">
-                    <div class="line-1"></div>
-                    <div class="line-2"></div>
-                    <div class="line-3"></div>
-                </div>
+        <div class="navbar">
+            <div class="logo">Parfume</div>
+            <div class="items">
+                <h1>Home</h1>
+                <a href="./service.html">
+                    <h1>Service</h1>
+                </a>
+                <h1>Chat</h1>
+                <h1>Product</h1>
             </div>
-
-
-            <div class="text-box">
-                <h2>Buy your Parfume with us</h2>
-                <button>Buy now</button>
+            <div class="icon">
+                <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.33041 24.6139L4.63438 14.4894C4.35851 12.8425 4.22058 12.0191 4.64533 11.4783C5.07007 10.9375 5.85474 10.9375 7.42407 10.9375H27.5759C29.1452 10.9375 29.93 10.9375 30.3546 11.4783C30.7794 12.0191 30.6415 12.8425 30.3656 14.4894L28.6695 24.6139C28.0715 28.1843 27.7725 29.9695 26.5882 31.0263C25.404 32.0833 23.7029 32.0833 20.3006 32.0833H14.6994C11.2972 32.0833 9.59604 32.0833 8.4118 31.0263C7.22754 29.9695 6.9285 28.1843 6.33041 24.6139Z"
+                        stroke="white" stroke-width="1.5"></path>
+                    <path
+                        d="M10.2083 10.9375V10.2083C10.2083 6.18126 13.4728 2.91667 17.4999 2.91667C21.527 2.91667 24.7916 6.18126 24.7916 10.2083V10.9375"
+                        stroke="white" stroke-width="1.5"></path>
+                    <path d="M6.5625 25.5208H28.4375" stroke="white" stroke-width="1.5"></path>
+                </svg>
+            </div>
+            <div class="hamburger-menu">
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+                <div class="line-3"></div>
             </div>
         </div>
-        <div class="product-list-box">
-            <div class="product-card">
-                <img class="product-img" src="./images/dark-blue.png" alt="">
-                <div class="product-name-box">
-                    <h3>Bleu De Chanel</h3>
+        <div class="hero" id="hero"></div>
+        <div class="product-box">
+            <img class="product-info-blur-background" src="./images/dark-blue.png" alt="">
+            <div class="left-side">
+                <div class="img-box">
+                    <img class="img-itself" src="./images/dark-blue.png" alt="">
                 </div>
-                <div class="product-title-box">
-                    <h4>SOIN PARFUMÉ CHEVEUX</h4>
+            </div>
+            <div class="right-side">
+                <div class="product-info-box">
+                    <div class="name-price-box">
+                        <h1 class="h1-product-name">BLUE DE CHANEL</h1>
+                        <h1 class="h1-product-name" id="product-price">€75,-</h1>
+                    </div>
+                    <div class="product-info-title">
+                        <h1 class="h1-info-title">ehmet</h1>
+                    </div>
+                    <div class="ml-info-container">
+                        <div class="active"><h1 class="h1-ml1">50ml</h1></div>
+                        <div class="ml-box"><h1 class="h1-ml">100ml</h1></div>
+                        <div class="ml-box"><h1 class="h1-ml">150ml</h1></div>
+                    </div>
+                    <div class="amount-container">
+                        <div class="box-minus"><h2>-</h2></div>
+                        <div class="box-amount"><h2 style="color: black;" id="quantity">1</h2></div>
+                        <div class="box-add"><h2>+</h2></div>
+                    </div>
+                    <div class="add-to-cart" id="add-to-cart-btn">
+                        <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.8135 12.6323L23.115 10.8337C23.3121 9.65772 23.4107 9.06973 23.0951 8.68433C22.7794 8.29892 22.1993 8.29892 21.039 8.29892H4.97453C3.81425 8.29892 3.23411 8.29892 2.91846 8.68433C2.60282 9.06973 2.70138 9.65772 2.89853 10.8337L4.20239 18.6116C4.63455 21.1896 4.85063 22.4786 5.73288 23.243C6.61512 24.0073 7.88688 24.0073 10.4304 24.0073H13.0068" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M15.1736 19.6739H23.8403M19.5069 24.0073V15.3406" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M18.9652 8.29892C18.9652 5.00822 16.2977 2.34059 13.0069 2.34059C9.71622 2.34059 7.04858 5.00822 7.04858 8.29892" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                            <h2 style="color: black;">Add To Cart</h2>                            
+                    </div>
+                    <div class="deliver-box">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5068 19.6739C19.5068 21.0546 18.3875 22.1739 17.0068 22.1739C15.6261 22.1739 14.5068 21.0546 14.5068 19.6739C14.5068 18.2932 15.6261 17.1739 17.0068 17.1739C18.3875 17.1739 19.5068 18.2932 19.5068 19.6739Z" stroke="white" stroke-width="1.5"/>
+                            <path d="M9.50684 19.6739C9.50684 21.0546 8.38755 22.1739 7.00684 22.1739C5.62613 22.1739 4.50684 21.0546 4.50684 19.6739C4.50684 18.2932 5.62613 17.1739 7.00684 17.1739C8.38755 17.1739 9.50684 18.2932 9.50684 19.6739Z" stroke="white" stroke-width="1.5"/>
+                            <path d="M2.00684 12.1739V17.1739C2.00684 18.1085 2.00684 18.5758 2.2078 18.9239C2.33945 19.1519 2.52881 19.3413 2.75684 19.4729C3.10492 19.6739 3.57222 19.6739 4.50684 19.6739M14.5068 19.6739H9.50684M15.0068 17.6739V9.17392C15.0068 7.75971 15.0068 7.0526 14.5675 6.61326C14.1281 6.17392 13.421 6.17392 12.0068 6.17392H11.0068M15.5068 8.67392H17.3082C18.1379 8.67392 18.5527 8.67392 18.8966 8.86862C19.2404 9.06332 19.4539 9.41902 19.8807 10.1304L21.5793 12.9614C21.7917 13.3154 21.8979 13.4925 21.9524 13.689C22.0068 13.8855 22.0068 14.0919 22.0068 14.5049V17.1739C22.0068 18.1085 22.0068 18.5758 21.8058 18.9239C21.6742 19.1519 21.4848 19.3413 21.2568 19.4729C20.9087 19.6739 20.4414 19.6739 19.5068 19.6739" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.85684 8.02392L6.50684 7.12392V4.87392M2.00684 6.67392C2.00684 9.1592 4.02156 11.1739 6.50684 11.1739C8.99212 11.1739 11.0068 9.1592 11.0068 6.67392C11.0068 4.18864 8.99212 2.17392 6.50684 2.17392C4.02156 2.17392 2.00684 4.18864 2.00684 6.67392Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <h2>Delivered in 2–4 business days</h2>                            
+                    </div>
+                    <div class="deliver-box">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.0068 22.1739C10.1886 22.1739 9.40703 21.8437 7.84377 21.1834C3.95248 19.5396 2.00684 18.7177 2.00684 17.3352C2.00684 16.9481 2.00684 10.2384 2.00684 7.17392M11.0068 22.1739V11.5287M11.0068 22.1739C11.7316 22.1739 12.2998 21.9148 13.5068 21.3965M20.0068 7.17392V11.1739" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.0068 17.6739H22.0068M18.5068 21.1739V14.1739" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M7.33276 9.8653L4.41156 8.45177C2.80841 7.67602 2.00684 7.28815 2.00684 6.67392C2.00684 6.05969 2.80841 5.67182 4.41156 4.89607L7.33276 3.48254C9.13567 2.61013 10.0371 2.17392 11.0068 2.17392C11.9765 2.17392 12.878 2.61012 14.6809 3.48254L17.6021 4.89607C19.2052 5.67182 20.0068 6.05969 20.0068 6.67392C20.0068 7.28815 19.2052 7.67602 17.6021 8.45177L14.6809 9.8653C12.878 10.7377 11.9765 11.1739 11.0068 11.1739C10.0371 11.1739 9.13567 10.7377 7.33276 9.8653Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.00684 12.1739L7.00684 13.1739" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.0068 4.17392L6.00684 9.17392" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <h2>Free shipping on orders over €50</h2>                            
+                    </div>
                 </div>
-                <div class="product-price-box">
-                    <h5>€ 90</h5>
-                </div>
-                <button class="buy-now"><a class="buy-text" href="#">add to your cart </a><svg width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 7L6 18" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" />
-                        <path
-                            d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13"
-                            stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
             </div>
         </div>
-
-
     </div>
 
+    <!-- Stripe Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <div class="checkout-title">Complete Your Purchase</div>
+                <div class="close-checkout" id="close-checkout">&times;</div>
+            </div>
+            
+            <div class="checkout-summary">
+                <div class="summary-item">
+                    <span id="summary-product">BLUE DE CHANEL 50ml</span>
+                    <span id="summary-price">€75.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Quantity</span>
+                    <span id="summary-quantity">1</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="checkout-total">
+                    <span>Total</span>
+                    <span id="summary-total">€75.00</span>
+                </div>
+            </div>
+            
+            <div class="customer-info">
+                <h3 style="margin-bottom: 15px; font-size: 18px;">Customer Information</h3>
+                
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="John Doe" required>
+                    <div class="error-message" id="name-error">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address-line1">Street Address</label>
+                    <input type="text" id="address-line1" placeholder="123 Main St" required>
+                    <div class="error-message" id="address-error">Please enter your street address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address-line2">Apt/Suite (Optional)</label>
+                    <input type="text" id="address-line2" placeholder="Apt 4B">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="New York" required>
+                        <div class="error-message" id="city-error">Please enter your city</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postal-code">Postal Code</label>
+                        <input type="text" id="postal-code" placeholder="10001" required>
+                        <div class="error-message" id="postal-error">Please enter your postal code</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                        <option value="US">United States</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="BE">Belgium</option>
+                        <option value="ES">Spain</option>
+                        <option value="IT">Italy</option>
+                        <option value="CH">Switzerland</option>
+                    </select>
+                    <div class="error-message" id="country-error">Please select your country</div>
+                </div>
+            </div>
+            
+            <h3 style="margin: 20px 0 15px; font-size: 18px;">Payment Information</h3>
+            
+            <form id="payment-form">
+                <div id="card-element"></div>
+                <div id="card-errors" role="alert" style="color: #ff6b6b; margin-bottom: 15px;"></div>
+                <button id="submit-payment">Pay Now</button>
+                <div id="payment-message" class="hidden"></div>
+                <div class="processing" id="processing">
+                    <div class="spinner"></div>
+                    <p>Processing your payment...</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Load Stripe.js library -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <script>
+        // Product configuration
+        const product = {
+            name: "BLUE DE CHANEL",
+            variants: {
+                "50ml": 7500, // Price in cents (€75.00)
+                "100ml": 12000, // €120.00
+                "150ml": 16000 // €160.00
+            },
+            selectedVariant: "50ml",
+            quantity: 1
+        };
+
+        // ML selection functionality
+        const mlOptions = document.querySelectorAll('.ml-box, .active');
+        
+        mlOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                mlOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    opt.classList.add('ml-box');
+                    opt.querySelector('h1').classList.remove('h1-ml1');
+                    opt.querySelector('h1').classList.add('h1-ml');
+                });
+                
+                // Add active class to clicked option
+                this.classList.remove('ml-box');
+                this.classList.add('active');
+                this.querySelector('h1').classList.remove('h1-ml');
+                this.querySelector('h1').classList.add('h1-ml1');
+                
+                // Update selected variant
+                const mlText = this.querySelector('h1').textContent;
+                product.selectedVariant = mlText;
+                
+                // Update price display
+                updatePriceDisplay();
+            });
+        });
+
+        // Quantity adjustment functionality
+        const minusBtn = document.querySelector('.box-minus');
+        const plusBtn = document.querySelector('.box-add');
+        const quantityDisplay = document.getElementById('quantity');
+        
+        minusBtn.addEventListener('click', function() {
+            if (product.quantity > 1) {
+                product.quantity--;
+                quantityDisplay.textContent = product.quantity;
+                updatePriceDisplay();
+            }
+        });
+
+        plusBtn.addEventListener('click', function() {
+            product.quantity++;
+            quantityDisplay.textContent = product.quantity;
+            updatePriceDisplay();
+        });
+
+        // Update price display
+        function updatePriceDisplay() {
+            const price = product.variants[product.selectedVariant] / 100;
+            const total = price * product.quantity;
+            document.getElementById('product-price').textContent = `€${total.toFixed(2)}${total % 1 === 0 ? ',-' : ''}`;
+        }
+
+        // Checkout modal functionality
+        const checkoutModal = document.getElementById('checkout-modal');
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const closeCheckoutBtn = document.getElementById('close-checkout');
+        
+        addToCartBtn.addEventListener('click', function() {
+            // Update checkout summary
+            const price = product.variants[product.selectedVariant] / 100;
+            const total = price * product.quantity;
+            
+            document.getElementById('summary-product').textContent = 
+                `${product.name} ${product.selectedVariant}`;
+            document.getElementById('summary-price').textContent = 
+                `€${price.toFixed(2)}`;
+            document.getElementById('summary-quantity').textContent = 
+                product.quantity;
+            document.getElementById('summary-total').textContent = 
+                `€${total.toFixed(2)}`;
+            
+            // Show checkout modal
+            checkoutModal.style.display = 'flex';
+            
+            // Initialize Stripe Elements
+            initializeStripe();
+        });
+        
+        closeCheckoutBtn.addEventListener('click', function() {
+            checkoutModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        checkoutModal.addEventListener('click', function(e) {
+            if (e.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+            }
+        });
+
+        // Stripe Payment Integration
+        let stripe;
+        let elements;
+        let cardElement;
+        let cardErrors = document.getElementById('card-errors');
+        
+        function initializeStripe() {
+            // Initialize Stripe with your publishable key
+            // IMPORTANT: Replace with your actual publishable key from Stripe dashboard
+            stripe = Stripe('pk_test_51PxSLi2KWc8yc0598Ya1VvMhylXbZs1L9lUNLEdcDhZlQoRIaaKajcnrTrH1RPpP0hOhQyOZJrdp7zq5rRJQvCmX006BSnvaFH'); // Test key - replace with your live key in production
+            
+            // Create an instance of Elements
+            elements = stripe.elements();
+            
+            // Create card element
+            const style = {
+                base: {
+                    color: '#ffffff',
+                    fontFamily: '"Inter", sans-serif',
+                    fontSmoothing: 'antialiased',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
+                }
+            };
+            
+            cardElement = elements.create('card', { 
+                style,
+                hidePostalCode: true // We collect this separately
+            });
+            
+            cardElement.mount('#card-element');
+            
+            // Handle real-time validation errors from the card Element
+            cardElement.on('change', function(event) {
+                if (event.error) {
+                    cardErrors.textContent = event.error.message;
+                } else {
+                    cardErrors.textContent = '';
+                }
+            });
+            
+            // Handle form submission
+            const form = document.getElementById('payment-form');
+            form.addEventListener('submit', handlePayment);
+        }
+        
+        async function handlePayment(event) {
+            event.preventDefault();
+            
+            // Reset all error states
+            resetValidationErrors();
+            
+            // Validate customer information
+            const fullName = document.getElementById('full-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const addressLine1 = document.getElementById('address-line1').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const postalCode = document.getElementById('postal-code').value.trim();
+            const country = document.getElementById('country').value;
+            
+            let isValid = true;
+            
+            if (!fullName) {
+                showValidationError('name-error', 'Please enter your full name');
+                isValid = false;
+            }
+            
+            if (!email) {
+                showValidationError('email-error', 'Please enter your email address');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showValidationError('email-error', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            if (!addressLine1) {
+                showValidationError('address-error', 'Please enter your street address');
+                isValid = false;
+            }
+            
+            if (!city) {
+                showValidationError('city-error', 'Please enter your city');
+                isValid = false;
+            }
+            
+            if (!postalCode) {
+                showValidationError('postal-error', 'Please enter your postal code');
+                isValid = false;
+            }
+            
+            if (!country) {
+                showValidationError('country-error', 'Please select your country');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // Show processing state
+            document.getElementById('processing').style.display = 'block';
+            document.getElementById('submit-payment').disabled = true;
+            hidePaymentMessage();
+            
+            // Calculate total amount in cents
+            const amount = product.variants[product.selectedVariant] * product.quantity;
+            
+            try {
+                // First verify the address using a geocoding service (simulated here)
+                const isAddressValid = await verifyAddress(addressLine1, city, postalCode, country);
+                
+                if (!isAddressValid) {
+                    throw new Error('The address you entered could not be verified. Please check and try again.');
+                }
+                
+                // Create payment method with billing details
+                const { paymentMethod, error: pmError } = await stripe.createPaymentMethod({
+                    type: 'card',
+                    card: cardElement,
+                    billing_details: {
+                        name: fullName,
+                        email: email,
+                        address: {
+                            line1: addressLine1,
+                            line2: document.getElementById('address-line2').value.trim(),
+                            city: city,
+                            postal_code: postalCode,
+                            country: country
+                        }
+                    }
+                });
+                
+                if (pmError) {
+                    throw pmError;
+                }
+                
+                // In a real app, you would send paymentMethod.id to your backend
+                // Here we'll simulate a successful payment
+                
+                // Simulate API call to your backend
+                const response = await simulateBackendPayment(paymentMethod.id, amount, {
+                    name: fullName,
+                    email: email,
+                    address: {
+                        line1: addressLine1,
+                        line2: document.getElementById('address-line2').value.trim(),
+                        city: city,
+                        postal_code: postalCode,
+                        country: country
+                    },
+                    product: `${product.name} ${product.selectedVariant}`,
+                    quantity: product.quantity
+                });
+                
+                if (response.error) {
+                    throw new Error(response.error);
+                }
+                
+                // Show success message
+                document.getElementById('processing').style.display = 'none';
+                showPaymentMessage('Payment successful! Thank you for your purchase.', 'success');
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    checkoutModal.style.display = 'none';
+                    hidePaymentMessage();
+                    document.getElementById('submit-payment').disabled = false;
+                    
+                    // Show confirmation to user
+                    alert(`Thank you for your purchase, ${fullName}!\n\nOrder Details:\n${product.quantity}x ${product.name} ${product.selectedVariant}\nTotal: €${(amount / 100).toFixed(2)}\n\nShipping to:\n${addressLine1}${document.getElementById('address-line2').value.trim() ? '\n' + document.getElementById('address-line2').value.trim() : ''}\n${city}, ${postalCode}\n${getCountryName(country)}\n\nA confirmation has been sent to ${email}`);
+                    
+                }, 2000);
+                
+            } catch (error) {
+                document.getElementById('processing').style.display = 'none';
+                document.getElementById('submit-payment').disabled = false;
+                
+                // Show error to user
+                showPaymentMessage(error.message);
+                
+                // If it's a card error, display it in the card errors element
+                if (error.type === 'card_error' || error.type === 'validation_error') {
+                    cardErrors.textContent = error.message;
+                }
+            }
+        }
+        
+        // Simulate backend payment processing
+        async function simulateBackendPayment(paymentMethodId, amount, customerDetails) {
+            // In a real app, you would make an actual API call to your backend
+            // This is just a simulation
+            
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Simulate a 10% chance of failure for testing
+                    if (Math.random() < 0.1) {
+                        resolve({ error: "Payment could not be processed. Please try again." });
+                    } else {
+                        resolve({ success: true });
+                    }
+                }, 1500);
+            });
+        }
+        
+        // Address verification simulation
+        async function verifyAddress(line1, city, postalCode, country) {
+            // In a real app, you would use a geocoding service like Google Maps API
+            // or a dedicated address verification service
+            
+            // This is a simple simulation that checks for basic validity
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Basic checks - in reality you'd do more thorough validation
+                    const isValid = line1.length > 5 && 
+                                  city.length > 2 && 
+                                  postalCode.length > 2 && 
+                                  country.length === 2;
+                    resolve(isValid);
+                }, 500);
+            });
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function showValidationError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.style.display = 'block';
+            
+            // Highlight the input field
+            const inputId = elementId.replace('-error', '');
+            const inputElement = document.getElementById(inputId);
+            if (inputElement) {
+                inputElement.classList.add('input-error');
+            }
+        }
+        
+        function resetValidationErrors() {
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('input-error');
+            });
+            
+            cardErrors.textContent = '';
+        }
+        
+        function showPaymentMessage(message, type = 'error') {
+            const paymentMessage = document.getElementById('payment-message');
+            paymentMessage.textContent = message;
+            paymentMessage.style.color = type === 'success' ? '#4bb543' : '#ff6b6b';
+            paymentMessage.style.display = 'block';
+        }
+        
+        function hidePaymentMessage() {
+            document.getElementById('payment-message').style.display = 'none';
+        }
+        
+        function getCountryName(countryCode) {
+            const countries = {
+                'US': 'United States',
+                'GB': 'United Kingdom',
+                'DE': 'Germany',
+                'FR': 'France',
+                'NL': 'Netherlands',
+                'BE': 'Belgium',
+                'ES': 'Spain',
+                'IT': 'Italy',
+                'CH': 'Switzerland'
+            };
+            return countries[countryCode] || countryCode;
+        }
+
+        // Background image rotation
+        const hero = document.getElementById("hero");
+        const images = [
+            "./images/parfume.png",
+            "./images/parfume.png",
+            "./images/dark-blue.png",
+            "./images/dior-water.png"
+        ];
+
+        let index = 0;
+
+        function changeBackground() {
+            hero.style.backgroundImage = `url('${images[index]}')`;
+            index = (index + 1) % images.length;
+        }
+
+        changeBackground();
+        setInterval(changeBackground, 4000);
+    </script>
 </body>
 
 </html>
