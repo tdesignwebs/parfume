@@ -185,7 +185,6 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #334155;
-            cursor: pointer;
         }
 
         .active {
@@ -198,7 +197,6 @@
             height: 35px;
             border-radius: 5px;
             border: none;
-            cursor: pointer;
         }
 
         .h1-ml1 {
@@ -286,7 +284,7 @@
             width: 325px;
         }
 
-        /* Checkout Modal Styles */
+        /* Stripe Checkout Modal Styles */
         .checkout-modal {
             display: none;
             position: fixed;
@@ -298,17 +296,15 @@
             z-index: 100;
             align-items: center;
             justify-content: center;
-            overflow-y: auto;
         }
 
         .checkout-content {
             background-color: #1e293b;
             padding: 30px;
             border-radius: 10px;
-            width: 500px;
+            width: 400px;
             max-width: 90%;
             color: white;
-            margin: 50px 0;
         }
 
         .checkout-header {
@@ -346,46 +342,11 @@
             margin-top: 10px;
         }
 
-        .customer-info {
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-
-        .form-group input, 
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #334155;
-            background-color: #0f172a;
-            color: white;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
         #card-element {
-            background: #0f172a;
+            background: white;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
-            border: 1px solid #334155;
         }
 
         #submit-payment {
@@ -398,8 +359,6 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
         }
 
         #submit-payment:hover {
@@ -411,7 +370,6 @@
             color: #ff6b6b;
             font-size: 14px;
             text-align: center;
-            display: none;
         }
 
         .processing {
@@ -433,17 +391,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        .error-message {
-            color: #ff6b6b;
-            font-size: 12px;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .input-error {
-            border-color: #ff6b6b !important;
         }
 
         /* Responsive Styles */
@@ -524,11 +471,6 @@
             .checkout-content {
                 width: 90%;
                 padding: 20px;
-            }
-
-            .form-row {
-                flex-direction: column;
-                gap: 0;
             }
         }
     </style>
@@ -649,69 +591,8 @@
                 </div>
             </div>
             
-            <div class="customer-info">
-                <h3 style="margin-bottom: 15px; font-size: 18px;">Customer Information</h3>
-                
-                <div class="form-group">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" placeholder="John Doe" required>
-                    <div class="error-message" id="name-error">Please enter your full name</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" required>
-                    <div class="error-message" id="email-error">Please enter a valid email address</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address-line1">Street Address</label>
-                    <input type="text" id="address-line1" placeholder="123 Main St" required>
-                    <div class="error-message" id="address-error">Please enter your street address</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address-line2">Apt/Suite (Optional)</label>
-                    <input type="text" id="address-line2" placeholder="Apt 4B">
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" placeholder="New York" required>
-                        <div class="error-message" id="city-error">Please enter your city</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="postal-code">Postal Code</label>
-                        <input type="text" id="postal-code" placeholder="10001" required>
-                        <div class="error-message" id="postal-error">Please enter your postal code</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country" required>
-                        <option value="">Select Country</option>
-                        <option value="US">United States</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="DE">Germany</option>
-                        <option value="FR">France</option>
-                        <option value="NL">Netherlands</option>
-                        <option value="BE">Belgium</option>
-                        <option value="ES">Spain</option>
-                        <option value="IT">Italy</option>
-                        <option value="CH">Switzerland</option>
-                    </select>
-                    <div class="error-message" id="country-error">Please select your country</div>
-                </div>
-            </div>
-            
-            <h3 style="margin: 20px 0 15px; font-size: 18px;">Payment Information</h3>
-            
             <form id="payment-form">
                 <div id="card-element"></div>
-                <div id="card-errors" role="alert" style="color: #ff6b6b; margin-bottom: 15px;"></div>
                 <button id="submit-payment">Pay Now</button>
                 <div id="payment-message" class="hidden"></div>
                 <div class="processing" id="processing">
@@ -833,12 +714,11 @@
         let stripe;
         let elements;
         let cardElement;
-        let cardErrors = document.getElementById('card-errors');
         
         function initializeStripe() {
             // Initialize Stripe with your publishable key
             // IMPORTANT: Replace with your actual publishable key from Stripe dashboard
-            stripe = Stripe('pk_test_51PxSLi2KWc8yc0598Ya1VvMhylXbZs1L9lUNLEdcDhZlQoRIaaKajcnrTrH1RPpP0hOhQyOZJrdp7zq5rRJQvCmX006BSnvaFH'); // Test key - replace with your live key in production
+            stripe = Stripe('pk_test_51PxSLi2KWc8yc0598Ya1VvMhylXbZs1L9lUNLEdcDhZlQoRIaaKajcnrTrH1RPpP0hOhQyOZJrdp7zq5rRJQvCmX006BSnvaFH');
             
             // Create an instance of Elements
             elements = stripe.elements();
@@ -846,7 +726,7 @@
             // Create card element
             const style = {
                 base: {
-                    color: '#ffffff',
+                    color: '#32325d',
                     fontFamily: '"Inter", sans-serif',
                     fontSmoothing: 'antialiased',
                     fontSize: '16px',
@@ -860,21 +740,8 @@
                 }
             };
             
-            cardElement = elements.create('card', { 
-                style,
-                hidePostalCode: true // We collect this separately
-            });
-            
+            cardElement = elements.create('card', { style });
             cardElement.mount('#card-element');
-            
-            // Handle real-time validation errors from the card Element
-            cardElement.on('change', function(event) {
-                if (event.error) {
-                    cardErrors.textContent = event.error.message;
-                } else {
-                    cardErrors.textContent = '';
-                }
-            });
             
             // Handle form submission
             const form = document.getElementById('payment-form');
@@ -884,233 +751,68 @@
         async function handlePayment(event) {
             event.preventDefault();
             
-            // Reset all error states
-            resetValidationErrors();
-            
-            // Validate customer information
-            const fullName = document.getElementById('full-name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const addressLine1 = document.getElementById('address-line1').value.trim();
-            const city = document.getElementById('city').value.trim();
-            const postalCode = document.getElementById('postal-code').value.trim();
-            const country = document.getElementById('country').value;
-            
-            let isValid = true;
-            
-            if (!fullName) {
-                showValidationError('name-error', 'Please enter your full name');
-                isValid = false;
-            }
-            
-            if (!email) {
-                showValidationError('email-error', 'Please enter your email address');
-                isValid = false;
-            } else if (!validateEmail(email)) {
-                showValidationError('email-error', 'Please enter a valid email address');
-                isValid = false;
-            }
-            
-            if (!addressLine1) {
-                showValidationError('address-error', 'Please enter your street address');
-                isValid = false;
-            }
-            
-            if (!city) {
-                showValidationError('city-error', 'Please enter your city');
-                isValid = false;
-            }
-            
-            if (!postalCode) {
-                showValidationError('postal-error', 'Please enter your postal code');
-                isValid = false;
-            }
-            
-            if (!country) {
-                showValidationError('country-error', 'Please select your country');
-                isValid = false;
-            }
-            
-            if (!isValid) {
-                return;
-            }
-            
             // Show processing state
             document.getElementById('processing').style.display = 'block';
             document.getElementById('submit-payment').disabled = true;
-            hidePaymentMessage();
             
             // Calculate total amount in cents
             const amount = product.variants[product.selectedVariant] * product.quantity;
             
             try {
-                // First verify the address using a geocoding service (simulated here)
-                const isAddressValid = await verifyAddress(addressLine1, city, postalCode, country);
+                // In a real application, you would call your backend to create a PaymentIntent
+                // For this example, we'll simulate that with a client-only approach
                 
-                if (!isAddressValid) {
-                    throw new Error('The address you entered could not be verified. Please check and try again.');
-                }
-                
-                // Create payment method with billing details
-                const { paymentMethod, error: pmError } = await stripe.createPaymentMethod({
+                // Create payment method
+                const { paymentMethod, error } = await stripe.createPaymentMethod({
                     type: 'card',
                     card: cardElement,
                     billing_details: {
-                        name: fullName,
-                        email: email,
-                        address: {
-                            line1: addressLine1,
-                            line2: document.getElementById('address-line2').value.trim(),
-                            city: city,
-                            postal_code: postalCode,
-                            country: country
-                        }
+                        name: 'Customer Name' // In a real app, collect this from the user
                     }
                 });
                 
-                if (pmError) {
-                    throw pmError;
+                if (error) {
+                    throw error;
                 }
                 
                 // In a real app, you would send paymentMethod.id to your backend
-                // Here we'll simulate a successful payment
+                // along with the order details to confirm the payment
                 
-                // Simulate API call to your backend
-                const response = await simulateBackendPayment(paymentMethod.id, amount, {
-                    name: fullName,
-                    email: email,
-                    address: {
-                        line1: addressLine1,
-                        line2: document.getElementById('address-line2').value.trim(),
-                        city: city,
-                        postal_code: postalCode,
-                        country: country
-                    },
-                    product: `${product.name} ${product.selectedVariant}`,
-                    quantity: product.quantity
-                });
-                
-                if (response.error) {
-                    throw new Error(response.error);
-                }
-                
-                // Show success message
-                document.getElementById('processing').style.display = 'none';
-                showPaymentMessage('Payment successful! Thank you for your purchase.', 'success');
-                
-                // Close modal after 2 seconds
+                // Simulate successful payment
                 setTimeout(() => {
-                    checkoutModal.style.display = 'none';
-                    hidePaymentMessage();
-                    document.getElementById('submit-payment').disabled = false;
+                    document.getElementById('processing').style.display = 'none';
                     
-                    // Show confirmation to user
-                    alert(`Thank you for your purchase, ${fullName}!\n\nOrder Details:\n${product.quantity}x ${product.name} ${product.selectedVariant}\nTotal: €${(amount / 100).toFixed(2)}\n\nShipping to:\n${addressLine1}${document.getElementById('address-line2').value.trim() ? '\n' + document.getElementById('address-line2').value.trim() : ''}\n${city}, ${postalCode}\n${getCountryName(country)}\n\nA confirmation has been sent to ${email}`);
+                    // Show success message
+                    const paymentMessage = document.getElementById('payment-message');
+                    paymentMessage.textContent = 'Payment successful! Thank you for your purchase.';
+                    paymentMessage.style.color = '#4bb543';
+                    paymentMessage.style.display = 'block';
                     
-                }, 2000);
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        checkoutModal.style.display = 'none';
+                        paymentMessage.style.display = 'none';
+                        document.getElementById('submit-payment').disabled = false;
+                        
+                        // Reset form
+                        cardElement.unmount();
+                        cardElement = elements.create('card');
+                        cardElement.mount('#card-element');
+                        
+                        // Show confirmation to user
+                        alert(`Thank you for your purchase!\n\n${product.quantity}x ${product.name} ${product.selectedVariant}\nTotal: €${(amount / 100).toFixed(2)}`);
+                    }, 2000);
+                }, 1500);
                 
             } catch (error) {
                 document.getElementById('processing').style.display = 'none';
                 document.getElementById('submit-payment').disabled = false;
                 
                 // Show error to user
-                showPaymentMessage(error.message);
-                
-                // If it's a card error, display it in the card errors element
-                if (error.type === 'card_error' || error.type === 'validation_error') {
-                    cardErrors.textContent = error.message;
-                }
+                const paymentMessage = document.getElementById('payment-message');
+                paymentMessage.textContent = error.message;
+                paymentMessage.style.display = 'block';
             }
-        }
-        
-        // Simulate backend payment processing
-        async function simulateBackendPayment(paymentMethodId, amount, customerDetails) {
-            // In a real app, you would make an actual API call to your backend
-            // This is just a simulation
-            
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    // Simulate a 10% chance of failure for testing
-                    if (Math.random() < 0.1) {
-                        resolve({ error: "Payment could not be processed. Please try again." });
-                    } else {
-                        resolve({ success: true });
-                    }
-                }, 1500);
-            });
-        }
-        
-        // Address verification simulation
-        async function verifyAddress(line1, city, postalCode, country) {
-            // In a real app, you would use a geocoding service like Google Maps API
-            // or a dedicated address verification service
-            
-            // This is a simple simulation that checks for basic validity
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    // Basic checks - in reality you'd do more thorough validation
-                    const isValid = line1.length > 5 && 
-                                  city.length > 2 && 
-                                  postalCode.length > 2 && 
-                                  country.length === 2;
-                    resolve(isValid);
-                }, 500);
-            });
-        }
-        
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-        
-        function showValidationError(elementId, message) {
-            const element = document.getElementById(elementId);
-            element.textContent = message;
-            element.style.display = 'block';
-            
-            // Highlight the input field
-            const inputId = elementId.replace('-error', '');
-            const inputElement = document.getElementById(inputId);
-            if (inputElement) {
-                inputElement.classList.add('input-error');
-            }
-        }
-        
-        function resetValidationErrors() {
-            document.querySelectorAll('.error-message').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            document.querySelectorAll('input, select').forEach(el => {
-                el.classList.remove('input-error');
-            });
-            
-            cardErrors.textContent = '';
-        }
-        
-        function showPaymentMessage(message, type = 'error') {
-            const paymentMessage = document.getElementById('payment-message');
-            paymentMessage.textContent = message;
-            paymentMessage.style.color = type === 'success' ? '#4bb543' : '#ff6b6b';
-            paymentMessage.style.display = 'block';
-        }
-        
-        function hidePaymentMessage() {
-            document.getElementById('payment-message').style.display = 'none';
-        }
-        
-        function getCountryName(countryCode) {
-            const countries = {
-                'US': 'United States',
-                'GB': 'United Kingdom',
-                'DE': 'Germany',
-                'FR': 'France',
-                'NL': 'Netherlands',
-                'BE': 'Belgium',
-                'ES': 'Spain',
-                'IT': 'Italy',
-                'CH': 'Switzerland'
-            };
-            return countries[countryCode] || countryCode;
         }
 
         // Background image rotation
